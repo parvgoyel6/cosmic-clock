@@ -1,71 +1,82 @@
-Key Highlights & Features
-Procedural Cosmos Shader: Direct GPU rendering using Three.js custom Simplex noise shaders,
-twinkling multi-layered stars, and mouse-reactive cosmic nebula distortion.
-Ultra-Smooth Drum Rolling Digits: Physical mechanical split-flap/roller simulation engineered with
-hardware-accelerated CSS cubic-bezier curves and seamless 0 → 9 → 0 rollover strips.
-Interactive 3D Parallax: Smooth mouse tracking using linear interpolation (lerp) giving the glass bezel
-multi-axial tilt and optical depth.
-Glassmorphic Display Shell: Multi-layer CSS backdrop filters ( blur(40px) saturate(170%) ), specular
-rim gradients, and ambient neon separators.
-Authoritative Time Synchronization: Uses JavaScript Intl.DateTimeFormat with target Asia/
-Kolkata timezone, guaranteeing 100% precision across client machines worldwide.
-Lightweight & Responsive: Self-contained in a single executable file with dynamic layout scaling from 4K
-down to compact mobile screens.
+⏳ India Standard Time — Cosmic Glass Edition
+A modern, high-precision digital roller clock fixed to India Standard Time (UTC+05:30). Built with procedural WebGL cosmic shaders, layered glassmorphism, dynamic 3D mouse parallax, and mechanical drum-style digit transitions.
 
-Technology Stack
-Graphics & Shaders
-Three.js (r128) & GLSL: Fullscreen quad rendering
-with custom fragment shaders, procedural noise
-calculations, dynamic star clusters, and interactive
-uniform buffers.
+✨ Features
+Procedural Cosmos Shader: Runs entirely on GPU via Three.js with Simplex noise, interactive star layers, twinkling effects, and mouse-driven nebula displacement.
 
-Typography & UI
-Google Fonts & Modern CSS: Cinzel, IBM Plex Serif
-(for tactile clock drums), Space Grotesk, and Plus
-Jakarta Sans paired with CSS 3D perspective
-transforms.
+Ultra-Smooth Rolling Digits: Split mechanical roller drum simulation using dynamic CSS cubic-bezier transitions and endless strip resets (0 → 9 → 0).
 
-Repository Architecture
-G I T H U B R E P O S I T O R Y D O C U M E N T A T I O N
-India Standard Time — Cosmic Glass Edition
-A high-precision digital roller clock fixed to India Standard Time (UTC+05:30), featuring procedural
-WebGL cosmos shaders, layered glassmorphism, 3D mouse parallax tilt, and mechanical drum digit
-physics.
-Three.js r128 GLSL Shaders Timezone IST (Asia/Kolkata) Zero Build Step MIT License
+Interactive 3D Parallax: Mouse tracking gives the central glass enclosure realistic perspective tilt and depth.
 
-•
+Glassmorphic UI: Multi-layered CSS backdrop filters, specular highlights, radial rim lighting, and dual-tone glowing neon separators.
 
-•
+Strict Timezone Lock: Calculates exact IST via native JavaScript Intl.DateTimeFormat across all devices, regardless of local client time.
 
-•
+Fully Responsive: Fluid scaling from high-resolution desktop monitors down to mobile viewports.
 
-•
+Zero Build Step: Native vanilla HTML, CSS, and JS using Three.js via CDN.
 
-•
+🚀 Live Demo
+Check out the live deployment directly via GitHub Pages:
 
-•
+View Live Demo (Replace with your GitHub Pages URL)
 
-├── index.html # Complete single-file application (WebGL, CSS, JS engine)
-├── README.md # Project overview & documentation
-└── LICENSE # MIT License terms
+🛠️ Tech Stack
+Three.js (r128): Fullscreen canvas rendering with custom Vertex and Fragment shaders.
 
-India Standard Time — Cosmic Glass Edition | GitHub Documentation Page 1 of 2
+GLSL: Procedural 2D Simplex noise, coordinate warping, dynamic star hashing.
 
-Quick Start & Setup
+Vanilla CSS3: Perspective transforms, flexbox/grid architecture, backdrop blur (saturate, blur), and gradient text clipping.
+
+Vanilla JavaScript (ES6+): Interval orchestration, Intl time formatting, DOM roller strip offsets, and linear interpolation (lerp) parallax loops.
+
+Google Fonts:
+
+Cinzel (Kicker & accents)
+
+IBM Plex Serif (Roller digits)
+
+Space Grotesk (Date & metadata)
+
+Plus Jakarta Sans (Body base)
+
+📂 Project Structure
+Plaintext
+├── index.html        # Complete application (markup, styles, WebGL shaders & engine)
+└── README.md         # Documentation
+💻 Quick Start
 1. Clone the repository
+Bash
+git clone https://github.com/<your-username>/<your-repo-name>.git
+cd <your-repo-name>
+2. Run locally
+Because there are no compile steps or dependencies to install, you can run this immediately:
 
-2. Local Execution
-Because there are no compile pipelines or npm dependencies required, you can test immediately:
-Direct Browser Launch: Open index.html directly in any web browser supporting WebGL.
-Local HTTP Server (Recommended):
+Option A: Direct Open
+Double-click index.html to open it in any modern web browser.
 
-Then visit http://localhost:8000 in your browser.
-Configuration & Customization
-Changing the Target Timezone:
-Locate the clock configuration inside index.html and edit the IANA timezone string:
+Option B: Local Server (Recommended for shaders)
+Using Python:
 
-Modifying Parallax Sensitivity:
-Adjust tilt responsiveness by modifying the rotational scale factors in the mouse event listener:
+Bash
+python3 -m http.server 8000
+Or using Node.js:
 
-License
-Released under the MIT License. Free for personal, academic, and commercial open-source projects.
+Bash
+npx serve
+Visit http://localhost:8000 in your browser.
+
+⚙️ Customization
+Change Timezone
+To change the clock from IST to another timezone, open index.html and update the IST_TZ variable inside the clock script:
+
+JavaScript
+const IST_TZ = 'America/New_York'; // e.g., 'UTC', 'Europe/London', 'Asia/Tokyo'
+Adjust Parallax Intensity
+Tweak the tilt range by adjusting the mouse multiplier inside the mousemove listener:
+
+JavaScript
+targetRY = px * 7; // Horizontal rotation range
+targetRX = -py * 5; // Vertical rotation range
+📄 License
+Distributed under the MIT License. See LICENSE for more information.
